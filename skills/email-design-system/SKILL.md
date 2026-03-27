@@ -12,7 +12,7 @@ This is a reference for AI coding agents working on EmailShepherd Email Design S
 
 An EDS defines the drag-and-drop email editor experience. The components you define become the blocks users drag into emails. The fields you define become the editable controls in the editor sidebar. Labels, groups, hints, and visibility rules all directly shape the editor UI.
 
-For exact TypeScript types, look up `node_modules/@emailshepherd/cli/dist/types.d.ts` in the project.
+For exact TypeScript types, look up `node_modules/@emailshepherd/eds-sdk/dist/types.d.ts` in the project.
 
 ## Defining a Component
 
@@ -21,7 +21,7 @@ A component is defined using `defineComponent` and consists of a name, label, de
 The `description` is important — EmailShepherd's AI Agents use it to decide which components to select. Write it to explain what the component is for and when it should be used (e.g. "Full-width image with headline and CTA. Use as the first component in promotional emails").
 
 ```typescript
-import { defineComponent } from '@emailshepherd/cli/types';
+import { defineComponent } from '@emailshepherd/eds-sdk/types';
 import template from './template.liquid?raw';
 
 export default defineComponent({
@@ -358,7 +358,7 @@ Minimal container template:
 Design tokens are a freeform JSON object for reusable design values (colors, spacing, typography, etc.) that can be referenced in templates.
 
 ```typescript
-import { defineDesignTokens } from '@emailshepherd/cli/types';
+import { defineDesignTokens } from '@emailshepherd/eds-sdk/types';
 
 export default defineDesignTokens({
   colors: {
@@ -389,7 +389,7 @@ Use design tokens for values that should be consistent across components but are
 Custom styles define named text styles available in `rich_text` fields. They can be used in two ways.
 
 ```typescript
-import { defineCustomStyles } from '@emailshepherd/cli/types';
+import { defineCustomStyles } from '@emailshepherd/eds-sdk/types';
 
 export default defineCustomStyles([
   {
@@ -537,4 +537,4 @@ Generally it's better to use EmailShepherd's personalization tags and conditiona
 - Group related fields with the `group` property.
 - Use design tokens for values that should be consistent but not editable per-component.
 - Use semantic, descriptive names for `liquid_variable` values.
-- Refer to `node_modules/@emailshepherd/cli/dist/types.d.ts` for exact type definitions.
+- Refer to `node_modules/@emailshepherd/eds-sdk/dist/types.d.ts` for exact type definitions.
